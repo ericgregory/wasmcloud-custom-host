@@ -11,6 +11,7 @@ USER nonroot
 
 # dependencies cache
 COPY Cargo.toml Cargo.lock ./
+RUN cargo fetch
 
 # copy source code
 COPY . .
