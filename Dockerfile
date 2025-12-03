@@ -11,16 +11,15 @@ USER nonroot
 
 # dependencies cache
 COPY Cargo.toml Cargo.lock ./
-COPY --parents ./crates/**/Cargo.toml ./
 
 # copy source code
 COPY . .
 
 # build static binary
-RUN cargo build --release --bin wash
+RUN cargo build --release --bin wasmcloud-custom-host
 
 # Release image
 FROM cgr.dev/chainguard/wolfi-base
 RUN apk add --no-cache git
-COPY --from=builder /src/target/release/wash /usr/local/bin/wash
-ENTRYPOINT ["/usr/local/bin/wash"]
+COPY --from=builder /src/target/release/wasmcloud-custom-host /usr/local/bin/wasmcloud-custom-host
+ENTRYPOINT ["/usr/local/bin/wasmcloud-custom-host"]
