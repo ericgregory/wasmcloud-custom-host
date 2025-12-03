@@ -12,7 +12,6 @@ USER nonroot
 # dependencies cache
 COPY Cargo.toml Cargo.lock ./
 COPY --parents ./crates/**/Cargo.toml ./
-RUN cargo fetch
 
 # copy source code
 COPY . .
