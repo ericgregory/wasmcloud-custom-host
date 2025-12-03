@@ -1,0 +1,11 @@
+[package]
+name = "wasmcloud-custom-host"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+wash-runtime = { git = "https://github.com/wasmCloud/wash", branch = "main" }
+wash = { git = "https://github.com/wasmCloud/wash", branch = "main" }
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+uuid = { version = "1", features = ["v4"] }
